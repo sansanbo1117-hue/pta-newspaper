@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>{{PAPER_NAME}}</title>
+  <style>
+    @page { size: A3 landscape; margin: 0; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Yu Gothic", "Hiragino Sans", "Noto Sans JP", sans-serif; color: #1f2926; }
+    .sheet { width: 420mm; min-height: 297mm; padding: 10mm 12mm 8mm; background: linear-gradient(135deg, #fffdf8 0%, #f7efe2 100%); }
+    header { display: grid; grid-template-columns: 34mm 1fr 120mm; gap: 6mm; align-items: stretch; margin-bottom: 5mm; }
+    .brand { background: #1f2926; color: #fff9ee; border-radius: 7mm; padding: 4mm; text-align: center; display: flex; flex-direction: column; justify-content: center; }
+    .brand .year { font-family: Georgia, serif; font-size: 26px; font-weight: 700; }
+    .brand .vol { font-size: 9px; letter-spacing: .18em; }
+    h1 { margin: 0; font-family: "Yu Mincho", serif; font-size: 34px; line-height: 1.15; letter-spacing: .05em; }
+    .lead { margin-top: 3mm; font-size: 10px; color: #52615b; }
+    .questions { border: 1px solid rgba(31,41,38,.14); border-radius: 6mm; padding: 4mm; background: rgba(255,255,255,.7); }
+    .q { display: grid; grid-template-columns: 9mm 1fr; gap: 2mm; align-items: start; margin-top: 2mm; }
+    .q b { background:#1f2926; color:white; border-radius: 50%; width: 7mm; height: 7mm; display:grid; place-items:center; font-size: 7px; }
+    .q span { font-size: 8px; font-weight: 700; line-height: 1.45; }
+    .staff-atlas { display: grid; gap: 3mm; }
+    .section { display: grid; grid-template-columns: 20mm 1fr; border-radius: 5mm; overflow: hidden; border: 1px solid rgba(31,41,38,.12); break-inside: avoid; }
+    .section-head { background: var(--section-color); color: white; padding: 3mm 2mm; display: flex; flex-direction: column; justify-content: space-between; align-items: center; }
+    .section-name { writing-mode: vertical-rl; font-family: "Yu Mincho", serif; font-size: 13px; font-weight: 900; letter-spacing: .1em; }
+    .section-count { font-family: Georgia, serif; font-size: 14px; font-weight: 700; text-align:center; }
+    .section-en { font-size: 5px; letter-spacing: .12em; }
+    .section-body { padding: 2.5mm; background: var(--section-soft); }
+    .people-grid { display: grid; grid-template-columns: repeat(var(--cols), minmax(0,1fr)); gap: 2mm; }
+    .person-card { background: rgba(255,255,255,.82); border-radius: 3.5mm; padding: 2mm; border: 1px solid rgba(31,41,38,.10); min-height: 28mm; }
+    .portrait { width: 12mm; height: 12mm; border-radius: 3mm; background: #ead8c8; display: grid; place-items: center; font-size: 5px; color: #6a6a6a; float: left; margin-right: 2mm; }
+    .name-row { display: flex; justify-content: space-between; gap: 1mm; border-bottom: 1px solid rgba(31,41,38,.10); padding-bottom: 1mm; }
+    .teacher-name { font-family: "Yu Mincho", serif; font-size: 9px; font-weight: 900; }
+    .furigana { font-size: 5px; color:#66736d; }
+    .role-title { font-size: 5.5px; color:#66736d; font-weight: 700; }
+    .no { color: var(--section-color); font-family: Georgia, serif; font-size: 6px; font-weight: 700; }
+    .message { clear: both; margin-top: 1.5mm; border-left: 2px solid var(--section-color); padding-left: 1.2mm; font-size: 5.8px; line-height: 1.35; font-weight: 700; color:#33423d; }
+    .tags { margin-top: 1.5mm; display: grid; gap: .8mm; font-size: 5.2px; font-weight: 700; color:#52615b; }
+    .tag b { background: var(--section-color); color: white; border-radius: 999px; padding: .5mm 1.5mm; margin-right: .8mm; font-family: Georgia, serif; }
+    footer { margin-top: 4mm; border-top: 1px solid rgba(31,41,38,.16); padding-top: 2mm; display: flex; justify-content: space-between; font-size: 6px; color:#66736d; }
+    .legend { display: flex; gap: 3mm; }
+    .dot { width: 2mm; height: 2mm; border-radius: 50%; display:inline-block; background: var(--dot); margin-right: .8mm; }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <header>
+      <div class="brand"><div class="year">{{YEAR}}</div><div class="vol">vol.{{VOL}}</div></div>
+      <div><h1>{{TITLE}}</h1><div class="lead">{{SCHOOL}} PTA新聞「{{PAPER_NAME}}」令和{{YEAR_JA}}年度 第{{VOL}}号<br>{{DESCRIPTION}}</div></div>
+      <div class="questions"><strong>Interview Theme</strong><div class="q"><b>Q1</b><span>{{Q1}}</span></div><div class="q"><b>Q2</b><span>{{Q2}}</span></div></div>
+    </header>
+    <section class="staff-atlas" id="staffAtlas"></section>
+    <footer><div>※写真・氏名・回答はExcelデータをもとに自動生成しています。</div><div class="legend" id="legend"></div></footer>
+  </main>
+</body>
+</html>
